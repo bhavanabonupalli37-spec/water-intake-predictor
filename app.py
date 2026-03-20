@@ -33,11 +33,11 @@ activity = st.selectbox("🏃 Activity Level", [1,2,3])
 temp = st.number_input("🌡️ Temperature (°C)")
 
 if st.button("Predict"):
-    if height > 0:
+if height > 0:
     bmi = weight / ((height/100)**2)
 else:
     st.error("Height cannot be zero")
-    
+    bmi = 0   # 👈 important fix
     new_data = pd.DataFrame([[weight, age, activity, temp, bmi]],
                             columns=["weight","age","activity_level","temperature","BMI"])
     
