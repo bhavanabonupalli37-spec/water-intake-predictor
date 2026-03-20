@@ -2,12 +2,11 @@ import streamlit as st
 import pandas as pd
 from sklearn.linear_model import LinearRegression
 
-# 👇 IKADA PASTE CHEYYALI
 st.markdown(
     """
     <style>
     .stApp {
-        background-color: #e6f7ff;
+        background-color: 
     }
     </style>
     """,
