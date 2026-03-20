@@ -34,7 +34,7 @@ temp = st.number_input("🌡️ Temperature (°C)")
 
 if st.button("Predict"):
     if height > 0:
-    bmi = weight / ((height/100)**2)
+       bmi = weight / ((height/100)**2)
 else:
     st.error("Height cannot be zero")
     bmi = 0   # 👈 important fix
