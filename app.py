@@ -24,16 +24,19 @@ model = LinearRegression()
 model.fit(X, y)
 
 # UI
-st.title("💧 Water Intake Predictor")
-
-weight = st.number_input("Enter weight (kg)")
-height = st.number_input("Enter height (cm)")
-age = st.number_input("Enter age")
-activity = st.selectbox("Activity Level", [1,2,3])
-temp = st.number_input("Temperature (°C)")
+st.title("💧 AI-Based Personalized Water Intake Predictor")
+st.subheader("Enter your details below 👇")
+weight = st.number_input("⚖️ Enter weight (kg)")
+height = st.number_input("📏 Enter height (cm)")
+age = st.number_input("🎂 Enter age")
+activity = st.selectbox("🏃 Activity Level", [1,2,3])
+temp = st.number_input("🌡️ Temperature (°C)")
 
 if st.button("Predict"):
+    if height > 0:
     bmi = weight / ((height/100)**2)
+else:
+    st.error("Height cannot be zero")
     
     new_data = pd.DataFrame([[weight, age, activity, temp, bmi]],
                             columns=["weight","age","activity_level","temperature","BMI"])
@@ -42,7 +45,8 @@ if st.button("Predict"):
     water = round(pred[0],2)
     
     st.success(f"Recommended Water Intake: {water} liters 💧")
-    
+    st.write("💡 Tip: Drink water throughout the day, not all at once!")
+
     if water < 2.5:
         st.warning("Drink more water! 😅")
     elif water < 3.5:
