@@ -39,7 +39,20 @@ if st.button("💧 Predict Water Intake"):
         pred = model.predict(new_data)
         water = round(pred[0],2)
 
-        st.success(f"Recommended Water Intake: {water} liters 💧")
-        st.write("💡 Tip: Drink water throughout the day, not all at once!")
+st.markdown(f"""
+<div style="
+    background-color:#ffffff;
+    padding:20px;
+    border-radius:15px;
+    box-shadow:0px 4px 10px rgba(0,0,0,0.1);
+    text-align:center;
+">
+    <h2 style="color:#0077b6;">💧 Recommended Water Intake</h2>
+    <h1 style="color:#023e8a;">{water} Liters</h1>
+    <p style="color:gray;">Stay hydrated and healthy 😊</p>
+</div>
+""", unsafe_allow_html=True)
+st.info("💡 Tip: Drink water throughout the day, not all at once!")
+st.write("💡 Tip: Drink water throughout the day, not all at once!")
     else:
         st.error("Height cannot be zero")
